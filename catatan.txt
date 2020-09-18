@@ -1,4 +1,4 @@
-Send Email -> 
+Send Email ->
 models
 Django Admin
 Custom Query Set -> obj.Filter
