@@ -1,0 +1,14 @@
+{
+    "files.eol": "\n",
+    "editor.rulers": [
+        79,
+        120
+    ],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ff4081"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "git.ignoreLimitWarning": true
+}

@@ -1,0 +1,10 @@
+Send Email -> 
+models
+Django Admin
+Custom Query Set -> obj.Filter
+Model serializer
+Custom serializer
+JWT DRF -> Simple JWT -> https://django-rest-framework-simplejwt.readthedocs.io/en/latest/experimental_features.html#jwttokenuserauthentication-backend
+API -> List, Pagination
+Custom Permission class,
+Custom serializer_class = generic
