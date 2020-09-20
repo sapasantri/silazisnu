@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import (Propinsi)
 
-# Register your models here.
+
+@admin.register(Propinsi)
+class PropinsinAdmin(admin.ModelAdmin):
+    list_display = ('kode', 'nama')
+    list_filter = ('kode', 'nama')
