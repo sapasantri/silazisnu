@@ -13,6 +13,7 @@ router.register(r'organisasi', api.OrganizationViewSet)
 app_name = 'organization'
 urlpatterns = [
     path('', include(router.urls)),
+    path('email/', api.SendEmailViewSet.as_view(), name='send_email'),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
