@@ -5,6 +5,7 @@ from . import api
 
 router = routers.DefaultRouter()
 router.register(r'propinsi', api.PropinsiViewSet)
+router.register(r'kota', api.KotaViewSet)
 
 app_name = 'wilayah'
 urlpatterns = [
