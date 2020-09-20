@@ -9,6 +9,7 @@ from . import api
 
 router = routers.DefaultRouter()
 router.register(r'organisasi', api.OrganizationViewSet)
+router.register(r'jabatan', api.JabatanViewSet)
 
 app_name = 'organization'
 urlpatterns = [
