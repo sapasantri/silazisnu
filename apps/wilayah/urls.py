@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 router.register(r'propinsi', api.PropinsiViewSet)
 router.register(r'kota', api.KotaViewSet)
 router.register(r'kecamatan', api.KecamatanViewSet)
+router.register(r'desa', api.DesaViewSet)
 
 app_name = 'wilayah'
 urlpatterns = [

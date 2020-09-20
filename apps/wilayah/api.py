@@ -4,9 +4,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from silazisnu.pagination import CustomPagination
 
-from .models import (Propinsi, Kota, Kecamatan)
+from .models import (Propinsi, Kota, Kecamatan, Desa)
 from .serializers import (PropinsiSerializer, KotaSerializer,
-                          KecamatanSerializer)
+                          KecamatanSerializer, DesaSerializer)
 
 
 class PropinsiViewSet(viewsets.ModelViewSet):
@@ -28,5 +28,11 @@ class KotaViewSet(viewsets.ModelViewSet):
 class KecamatanViewSet(viewsets.ModelViewSet):
     queryset = Kecamatan.objects.all()
     serializer_class = KecamatanSerializer
+    filterset_fields = ('is_active', 'kode', 'nama')
+    permission_classes = (IsAuthenticated,)
+
+class DesaViewSet(viewsets.ModelViewSet):
+    queryset = Desa.objects.all()
+    serializer_class = DesaSerializer
     filterset_fields = ('is_active', 'kode', 'nama')
     permission_classes = (IsAuthenticated,)
