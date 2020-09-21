@@ -6,22 +6,21 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 
-from .models import (Organization, Jabatan)
-from .serializers import (OrganizationSerializer, JabatanSerializer)
+from .models import (Organization, Jabatan, )
+from .serializers import (OrganizationSerializer, JabatanSerializer,)
 
 
 class OrganizationViewSet(viewsets.ModelViewSet):
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
     filterset_fields = ('is_active', 'nama')
-    pagination_class = None
     permission_classes = (IsAuthenticated,)
+
 
 class JabatanViewSet(viewsets.ModelViewSet):
     queryset = Jabatan.objects.all()
     serializer_class = JabatanSerializer
     filterset_fields = ('is_active', 'nama')
-    pagination_class = None
     permission_classes = (IsAuthenticated,)
 
 

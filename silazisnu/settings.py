@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #ThirdParty
     'rest_framework',
+    'post_office',
 
     #APPS
-    'apps.organization'
+    'apps.organization',
+    'apps.wilayah',
+    'apps.pengurus'
 
 
 ]
@@ -144,9 +147,9 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK = {
-     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication', ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
 }
 
 
@@ -176,3 +179,13 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'xxx@gmail.com'
+EMAIL_HOST_PASSWORD = 'passwordEmail'
+EMAIL_PORT = 587
+
+#CUSTOM USER MODEL
+AUTH_USER_MODEL = 'pengurus.User'
