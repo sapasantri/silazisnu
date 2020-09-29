@@ -29,8 +29,9 @@ SECRET_KEY = 'xldin+=*+oeiy(7@1=+q3l7*uz=n1t6-gi$)(u0if$6zyo6c%f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.80.19']
 
 
 # Application definition
@@ -44,17 +45,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #ThirdParty
     'rest_framework',
+    'rest_framework_swagger',
     'post_office',
+    'corsheaders',
 
     #APPS
     'apps.organization',
     'apps.wilayah',
-    'apps.pengurus'
+    'apps.pengurus',
+    'apps.transaksi'
 
 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -131,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
@@ -149,7 +154,8 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication', ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 
@@ -180,11 +186,11 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'post_office.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'xxx@gmail.com'
-EMAIL_HOST_PASSWORD = 'passwordEmail'
+EMAIL_HOST_USER = '@gmail.com'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 #CUSTOM USER MODEL

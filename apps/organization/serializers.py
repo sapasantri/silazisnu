@@ -1,5 +1,6 @@
-from rest_framework import serializers, fields
-from .models import (Organization, Jabatan)
+from rest_framework import fields, serializers
+
+from .models import Jabatan, Organization
 
 
 class OrganizationSerializer(serializers.ModelSerializer):

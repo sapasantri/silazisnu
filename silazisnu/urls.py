@@ -16,11 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path, include
+from rest_framework_swagger.views import get_swagger_view
+
+# schema_view = get_swagger_view(title='Pastebin API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls')),
+    path('api/doc/', get_swagger_view(title='Pastebin API')),
     path('api/', include('apps.organization.urls')),
     path('api/', include('apps.wilayah.urls')),
+    path('api/', include('apps.pengurus.urls')),
+    path('api/', include('apps.transaksi.urls')),
 
 ]

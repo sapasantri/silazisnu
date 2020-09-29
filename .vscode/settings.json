@@ -10,5 +10,6 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "/Users/apple/dakon/udemy/sinu/env/bin/python3"
 }

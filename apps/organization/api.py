@@ -1,13 +1,13 @@
 from post_office import mail
-
-from rest_framework import status, viewsets, views
+from rest_framework import status, views, viewsets
 from rest_framework.decorators import action
-from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
+from silazisnu.permissions import IsServedAs
 
-from .models import (Organization, Jabatan, )
-from .serializers import (OrganizationSerializer, JabatanSerializer,)
+from .models import Jabatan, Organization
+from .serializers import JabatanSerializer, OrganizationSerializer
 
 
 class OrganizationViewSet(viewsets.ModelViewSet):
@@ -21,7 +21,7 @@ class JabatanViewSet(viewsets.ModelViewSet):
     queryset = Jabatan.objects.all()
     serializer_class = JabatanSerializer
     filterset_fields = ('is_active', 'nama')
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, IsServedAs)
 
 
 class SendEmailViewSet(views.APIView):
